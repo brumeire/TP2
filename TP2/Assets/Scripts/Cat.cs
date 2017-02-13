@@ -7,7 +7,13 @@ public class Cat
     protected const float maxAnxiety = 100.0f;
     protected float actualAnxiety = 0.0f;
     protected float anxietySpeed = 0.1f;
+    protected float timeBeforeMeow = 5.0f;
+    protected float actualMeowTimer = 0.0f;
+    protected bool anesthesia = false;
 
+    /// <summary>
+    /// Tell if this cat is anxious or not.
+    /// </summary>
     public bool anxious = false;
     public bool catched = false;
     public float moveSpeed = 5.0f;
@@ -23,7 +29,7 @@ public class Cat
     /// </summary>
     public virtual void UpdateCat()
     {
-        if (!anxious)
+        if (!anxious && !anesthesia)
         {
             actualAnxiety += anxietySpeed * Time.deltaTime;
             if (actualAnxiety >= maxAnxiety)
@@ -37,7 +43,21 @@ public class Cat
             actualAnxiety = maxAnxiety - 10.0f;
             TryUnCatch();
         }
+        
+        if (anesthesia)
+        {
 
+        }
+
+        if (actualMeowTimer < timeBeforeMeow)
+        {
+            actualMeowTimer += Time.deltaTime;
+        }
+        else
+        {
+            Meow();
+            actualMeowTimer = 0.0f;
+        }
     }
 
     protected void TryUnCatch()
@@ -54,5 +74,25 @@ public class Cat
     public virtual void Catch()
     {
         catched = !catched;
+        if (catched)
+        {
+            Meow();
+        }
+    }
+
+    protected virtual void Meow()
+    {
+        Debug.Log("Miaou");
+    }
+
+    /// <summary>
+    /// Call this method when you want to anesthetize your cat.
+    /// </summary>
+    public void Anesthetize()
+    {
+        anesthesia = true;
+        actualAnxiety = 0.0f;
+        anxious = false;
+        moveSpeed = 0.0f;
     }
 }
