@@ -27,7 +27,17 @@ public class Statut {
 
         switch (Random.Range(0, 3))
         {
+            case 0:
+                asking = ask.castration;
+                break;
 
+            case 1:
+                asking = ask.identify;
+                break;
+
+            case 2:
+                asking = ask.vaccin;
+                break;
         }
 
 
@@ -36,7 +46,7 @@ public class Statut {
 	public void OnScreenStatut (){
 
 		//affiché le status au dessus du chat
-		statut.text = "Name : " +  name + '\n'+"Age : " + age +'\n'+ "Sexe : " +  sex + '\n'+"Identity : " + ID + '\n'+"Ask : " + asking; 
+		statut.text = "Name : " +  name + '\n'+"Age : " + age +'\n'+ "Sexe : " +  sex + '\n'+"Identity : " + iD + '\n'+"Ask : " + asking; 
 
 	}
 
