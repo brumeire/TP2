@@ -50,43 +50,71 @@ public class Veto : MonoBehaviour {
             Collider[] surroundings = Physics.OverlapSphere(transform.position, 1, layerMask);
             if (surroundings.Length > 0)
             {
-                isHoldingCat = true;
-                catHeld = surroundings[0].GetComponent<CatManager>();
-                catHeld.cat.Catch();
+                CatchCat(surroundings[0]);
             }
         }
 
         else if (isHoldingCat && Input.GetKeyDown(KeyCode.E))
         {
-            isHoldingCat = false;
-            catHeld.cat.Catch();
-            catHeld = null;
+            ReleaseCat();
         }
     }
 
     private bool IsCatStillHeld()
     {
-        return catHeld.cat.catched;  
+        if (!catHeld.cat.catched)
+        {
+            catHeld = null;
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+
     }
 
-    public void CatchCat()
+    public void CatchCat(Collider col)
     {
+        isHoldingCat = true;
+        catHeld = col.GetComponent<CatManager>();
+        catHeld.cat.Catch();
+    }
 
+    public void ReleaseCat()
+    {
+        isHoldingCat = false;
+        catHeld.cat.Catch();
+        catHeld = null;
     }
 
     public void VaccinateCat()
     {
-
+        if (isHoldingCat)
+        {
+            catHeld.cat.statut.vaccinated = true;
+        }
     }
 
-    public void AnesthesiaCat()
+    public void AnesthesiateCat()
     {
-
+        if (isHoldingCat)
+        {
+            catHeld.cat.Anesthetize();
+        }
     }
 
     public void CastrateCat()
     {
+        if (isHoldingCat)
+        {
+            if (catHeld.cat.statut.sex == Statut.sexe.male)
+                catHeld.cat.statut.sex = Statut.sexe.castrated_male;
 
+            else if (catHeld.cat.statut.sex == Statut.sexe.female)
+                catHeld.cat.statut.sex = Statut.sexe.castrated_female;
+        }
     }
 
     public void RegisterCat()
