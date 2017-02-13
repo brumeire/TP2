@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Veto : MonoBehaviour {
 
+    public static Veto instance;
 
     public float hp = 100;
 
@@ -16,7 +17,11 @@ public class Veto : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(this);
+
 	}
 	
 	// Update is called once per frame
@@ -119,7 +124,10 @@ public class Veto : MonoBehaviour {
 
     public void RegisterCat()
     {
-
+        if (isHoldingCat)
+        {
+            catHeld.cat.statut.iD = Random.Range(1, 99999);
+        }
     }
 
 }

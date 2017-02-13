@@ -8,7 +8,7 @@ public class CatManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		//Choose random
 	}
 	
 	// Update is called once per frame
