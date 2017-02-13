@@ -20,6 +20,7 @@ public class Cat
     public bool anxious = false;
 
     public Color catColor;
+    public Sprite catSprite;
 
     public bool catched = false;
     public float moveSpeed = 5.0f;
@@ -30,6 +31,7 @@ public class Cat
     public Cat(Statut statut)
     {
         this.statut = statut;
+        catSprite = Resources.Load<Sprite>("NormalCat");
     }
 
     /// <summary>
@@ -143,6 +145,7 @@ public class BatCat : Cat
     {
         //I'm batman
         catColor = Color.black;
+        catSprite = Resources.Load<Sprite>("BatCat");
     }
 
     protected override void Meow()
@@ -182,6 +185,7 @@ public class ZenCat : Cat
     {
         anxietySpeed /= 2.0f;
         catColor = Color.blue;
+        catSprite = Resources.Load<Sprite>("ZenCat");
     }
 }
 
@@ -193,6 +197,7 @@ public class StressedCat : Cat
         moveSpeed *= 2.0f;
         anxietySpeed *= 2.0f;
         catColor = Color.yellow;
+        catSprite = Resources.Load<Sprite>("StressedCat");
     }
 }
 
@@ -203,6 +208,7 @@ public class WarCat : Cat
     {
         //War never dies
         catColor = Color.red;
+        catSprite = Resources.Load<Sprite>("WarCat");
     }
 
     public override void Catch()
@@ -222,6 +228,7 @@ public class AlmostACat : Cat
     {
         //I'm just a poor boy...
         catColor = Color.grey;
+        catSprite = Resources.Load<Sprite>("AlmostACat");
     }
 
     protected override void Meow()
@@ -237,6 +244,7 @@ public class HackerCat : Cat
     {
         //We do not forgive. We do not forget. Expect us.
         catColor = Color.green;
+        catSprite = Resources.Load<Sprite>("HackerCat");
     }
 
     public override void CollideACat(Cat otherCat)
