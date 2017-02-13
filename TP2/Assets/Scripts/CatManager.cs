@@ -16,8 +16,33 @@ public class CatManager : MonoBehaviour {
             case 0:
                 cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
                 break;
+
+            case 1:
+                cat = new BatCat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+
+            case 2:
+                cat = new ZenCat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+
+            case 3:
+                cat = new StressedCat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+
+            case 4:
+                cat = new WarCat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+
+            case 5:
+                cat = new AlmostACat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+
+            case 6:
+                cat = new HackerCat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+
         }
-        cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
+        //cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
         cat.StartCat();
 	}
 	
