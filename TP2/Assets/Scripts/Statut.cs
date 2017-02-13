@@ -11,6 +11,7 @@ public class Statut {
 	public enum sexe {male, female, castrated_male, castrated_female};
 	public int ID;
 	public enum ask {vaccin, castration, identify};
+	public bool vaccinated;
 
 	public Text statut;
 	public sexe sex;
