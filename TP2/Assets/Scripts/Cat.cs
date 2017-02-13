@@ -174,6 +174,7 @@ public class ZenCat : Cat
     }
 }
 
+[System.Serializable]
 public class StressedCat : Cat
 {
     public StressedCat(Statut statut) : base(statut)
@@ -183,6 +184,7 @@ public class StressedCat : Cat
     }
 }
 
+[System.Serializable]
 public class WarCat : Cat
 {
     public WarCat(Statut statut) : base(statut)
@@ -200,6 +202,7 @@ public class WarCat : Cat
     }
 }
 
+[System.Serializable]
 public class AlmostACat : Cat
 {
     public AlmostACat(Statut statut) :base(statut)
@@ -213,6 +216,7 @@ public class AlmostACat : Cat
     }
 }
 
+[System.Serializable]
 public class HackerCat : Cat
 {
    public HackerCat (Statut statut) : base (statut)
