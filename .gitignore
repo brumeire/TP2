@@ -1,0 +1,54 @@
+# =============== #
+# Unity generated #
+# =============== #
+PrototypeGenesis2/Temp/
+PrototypeGenesis2/Library/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+PrototypeGenesis2/ExportedObj/
+PrototypeGenesis2/obj/
+PrototypeGenesis2/*.svd
+PrototypeGenesis2/*.userprefs
+PrototypeGenesis2/*.csproj
+PrototypeGenesis2/*.pidb
+PrototypeGenesis2/*.suo
+PrototypeGenesis2/*.sln
+PrototypeGenesis2/*.user
+PrototypeGenesis2/*.unityproj
+PrototypeGenesis2/*.booproj
+PrototypeGenesis2/Assembly-CSharp.csproj
+
+# ============ #
+# OS generated #
+# ============ #
+PrototypeGenesis2/.DS_Store
+PrototypeGenesis2/.DS_Store?
+PrototypeGenesis2/._*
+PrototypeGenesis2/.Spotlight-V100
+PrototypeGenesis2/.Trashes
+PrototypeGenesis2/ehthumbs.db
+PrototypeGenesis2/Thumbs.db
+PrototypeGenesis3/Library/
+PrototypeGenesis3/Assembly-CSharp.csproj
+PrototypeGenesis3/Temp/
+PrototypeGenesis3/Build/Alpha 0.1/Alpha 0.1_Data/Managed/UnityEngine.xml
+PrototypeGenesis3/Build/Alpha 0.1/
+Test Fluids/
+Test Shader Forge/
+Prototype Genesis 2/Library/
+Prototype Genesis 2/Temp/
+Prototype Genesis 2/Assets/three - debug physics.unity
+Prototype Genesis 2/Assets/three - debug physics.unity.meta
+Prototype Genesis 2/Assets/Plugins/kolmich/
+Prototype Genesis 2/Assets/Plugins.meta
+Prototype Genesis 2/Assets/Plugins/kolmich.meta
+Prototype Genesis 2/Assembly-CSharp-Editor-firstpass.csproj
+Prototype Genesis 2/Assembly-CSharp-Editor.csproj
+Prototype Genesis 2/Assembly-CSharp-firstpass.csproj
+Prototype Genesis 2/Builds/
+Prototype Genesis 2/Assets/EasyEditor.meta
+Prototype Genesis 2/Assets/EasyEditor/Readme.pdf
+Prototype Genesis 2/Assets/EasyEditor/Readme.pdf.meta
+TP2/Library/
