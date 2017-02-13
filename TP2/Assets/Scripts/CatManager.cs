@@ -6,6 +6,8 @@ public class CatManager : MonoBehaviour {
 
     public Cat cat;
 
+    public Vector3 target;
+
 	// Use this for initialization
 	void Start () {
 
@@ -42,14 +44,26 @@ public class CatManager : MonoBehaviour {
                 break;
 
         }
-        //cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
+        
+
         cat.StartCat();
+
+        RandomizeTarget();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         cat.UpdateCat();
+
+        transform.position = Vector3.MoveTowards(transform.position, target, cat.moveSpeed * Time.deltaTime);
+        if (transform.position == target)
+            RandomizeTarget();
 	}
+
+    private void RandomizeTarget()
+    {
+        target = new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f), 0);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
