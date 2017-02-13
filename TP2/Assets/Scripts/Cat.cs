@@ -19,6 +19,7 @@ public class Cat
     /// </summary>
     public bool anxious = false;
 
+    public Color catColor;
 
     public bool catched = false;
     public float moveSpeed = 5.0f;
@@ -37,6 +38,7 @@ public class Cat
     public virtual void StartCat()
     {
         baseMoveSpeed = moveSpeed;
+        catColor = Color.white;
     }
 
     /// <summary>
@@ -134,6 +136,7 @@ public class BatCat : Cat
     public BatCat(Statut statut) : base(statut)
     {
         //I'm batman
+        catColor = Color.black;
     }
 
     protected override void Meow()
@@ -171,6 +174,7 @@ public class ZenCat : Cat
     public ZenCat(Statut statut) : base(statut)
     {
         anxietySpeed /= 2.0f;
+        catColor = Color.blue;
     }
 }
 
@@ -181,6 +185,7 @@ public class StressedCat : Cat
     {
         moveSpeed *= 2.0f;
         anxietySpeed *= 2.0f;
+        catColor = Color.yellow;
     }
 }
 
@@ -190,6 +195,7 @@ public class WarCat : Cat
     public WarCat(Statut statut) : base(statut)
     {
         //War never dies
+        catColor = Color.red;
     }
 
     public override void Catch()
@@ -208,6 +214,7 @@ public class AlmostACat : Cat
     public AlmostACat(Statut statut) :base(statut)
     {
         //I'm just a poor boy...
+        catColor = Color.grey;
     }
 
     protected override void Meow()
@@ -219,9 +226,10 @@ public class AlmostACat : Cat
 [System.Serializable]
 public class HackerCat : Cat
 {
-   public HackerCat (Statut statut) : base (statut)
+    public HackerCat (Statut statut) : base (statut)
     {
         //We do not forgive. We do not forget. Expect us.
+        catColor = Color.green;
     }
 
     public override void CollideACat(Cat otherCat)
