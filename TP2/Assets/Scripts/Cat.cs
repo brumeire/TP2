@@ -56,7 +56,7 @@ public class Cat
                 anxious = true;
             }
         }
-        else if (catched)
+        else if (catched && anxious)
         {
             anxious = false;
             actualAnxiety = maxAnxiety - 50.0f;
