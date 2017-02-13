@@ -10,18 +10,31 @@ public class Cat
     protected float timeBeforeMeow = 5.0f;
     protected float actualMeowTimer = 0.0f;
     protected bool anesthesia = false;
+    protected float timeOfAnesthesia = 3.0f;
+    protected float actualAnsethesiaTimer = 0.0f;
 
     /// <summary>
     /// Tell if this cat is anxious or not.
     /// </summary>
     public bool anxious = false;
+
+
     public bool catched = false;
     public float moveSpeed = 5.0f;
+    protected float baseMoveSpeed;
     public Statut statut;
 
     public Cat(Statut statut)
     {
         this.statut = statut;
+    }
+
+    /// <summary>
+    /// Execute this in the Start function of a monobehaviour class.
+    /// </summary>
+    public virtual void StartCat()
+    {
+        baseMoveSpeed = moveSpeed;
     }
 
     /// <summary>
@@ -46,7 +59,12 @@ public class Cat
         
         if (anesthesia)
         {
-
+            actualAnsethesiaTimer += Time.deltaTime;
+            if (actualAnsethesiaTimer >= timeOfAnesthesia)
+            {
+                anesthesia = false;
+                moveSpeed = baseMoveSpeed;
+            }
         }
 
         if (actualMeowTimer < timeBeforeMeow)
