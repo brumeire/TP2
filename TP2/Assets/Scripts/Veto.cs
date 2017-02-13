@@ -34,8 +34,8 @@ public class Veto : MonoBehaviour {
         }
 
         
-
-        isHoldingCat = IsCatStillHeld();
+        if (isHoldingCat)
+            isHoldingCat = IsCatStillHeld();
 
         Actions();
     }

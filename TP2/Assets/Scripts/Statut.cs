@@ -17,13 +17,24 @@ public class Statut {
 	public sexe sex;
 	public ask asking;
 
-    public Statut(string name, int age, sexe sex)
+    public Statut(string name)
     {
         this.name = name;
-        this.age = age;
+        age = Random.Range(1, 8);
         vaccinated = false;
-        this.sex = sex;
         iD = 0;
+
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                sex = sexe.male;
+                break;
+
+            case 1:
+                sex = sexe.female;
+                break;
+        }
+
 
         switch (Random.Range(0, 3))
         {

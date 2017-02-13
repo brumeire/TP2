@@ -8,11 +8,25 @@ public class CatManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Choose random
+
+        string[] names = Resources.Load<TextAsset>("Names").ToString().Split('\n');
+
+        switch (Random.Range(0, 7))
+        {
+            case 0:
+                cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
+                break;
+        }
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
 }
