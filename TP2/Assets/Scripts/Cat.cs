@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Cat
 {
     protected const float maxAnxiety = 100.0f;
@@ -23,6 +24,7 @@ public class Cat
     public float moveSpeed = 5.0f;
     protected float baseMoveSpeed;
     public Statut statut;
+    public bool alive = true;
 
     public Cat(Statut statut)
     {
@@ -78,7 +80,7 @@ public class Cat
         }
     }
 
-    protected void TryUnCatch()
+    protected virtual void TryUnCatch()
     {
         if ((float) Random.value > 0.5f)
         {
@@ -112,5 +114,119 @@ public class Cat
         actualAnxiety = 0.0f;
         anxious = false;
         moveSpeed = 0.0f;
+    }
+
+    /// <summary>
+    /// Call this when the cat collide a fellow meow.
+    /// </summary>
+    /// <param name="otherCat"></param>
+    public virtual void CollideACat(Cat otherCat)
+    {
+        //see hacker cat.
+    }
+}
+
+[System.Serializable]
+public class BatCat : Cat
+{
+    private int timeFlee = 0;
+
+    public BatCat(Statut statut) : base(statut)
+    {
+        //I'm batman
+    }
+
+    protected override void Meow()
+    {
+        Debug.Log("I'm batman");
+    }
+
+    public override void UpdateCat()
+    {
+        base.UpdateCat();
+        if (timeFlee >= 2)
+        {
+            JumpOverAWindow();
+        }
+    }
+
+    protected override void TryUnCatch()
+    {
+        if ((float)Random.value > 0.5f)
+        {
+            catched = false;
+            JumpOverAWindow();
+        }
+    }
+
+    private void JumpOverAWindow()
+    {
+        alive = false;
+    }
+}
+
+[System.Serializable]
+public class ZenCat : Cat
+{
+    public ZenCat(Statut statut) : base(statut)
+    {
+        anxietySpeed /= 2.0f;
+    }
+}
+
+public class StressedCat : Cat
+{
+    public StressedCat(Statut statut) : base(statut)
+    {
+        moveSpeed *= 2.0f;
+        anxietySpeed *= 2.0f;
+    }
+}
+
+public class WarCat : Cat
+{
+    public WarCat(Statut statut) : base(statut)
+    {
+        //War never dies
+    }
+
+    public override void Catch()
+    {
+        base.Catch();
+        if (catched)
+        {
+            Veto.instance.hp -= 1.0f;
+        }
+    }
+}
+
+public class AlmostACat : Cat
+{
+    public AlmostACat(Statut statut) :base(statut)
+    {
+        //I'm just a poor boy...
+    }
+
+    protected override void Meow()
+    {
+        Debug.Log("Miouf");
+    }
+}
+
+public class HackerCat : Cat
+{
+   public HackerCat (Statut statut) : base (statut)
+    {
+        //We do not forgive. We do not forget. Expect us.
+    }
+
+    public override void CollideACat(Cat otherCat)
+    {
+
+    }
+
+    private void CorruptStatut(Statut.ask ask)
+    {
+
     }
 }
