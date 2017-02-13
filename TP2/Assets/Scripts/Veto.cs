@@ -108,7 +108,7 @@ public class Veto : MonoBehaviour {
         catHeld.cat.Catch();
     }
 
-    public void CatchCat()
+    public void CatchReleaseCat()
     {
         if (!isHoldingCat)
         {
@@ -118,6 +118,10 @@ public class Veto : MonoBehaviour {
             {
                 CatchCat(surroundings[0]);
             }
+        }
+        else
+        {
+            ReleaseCat();
         }
     }
 

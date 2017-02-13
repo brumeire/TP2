@@ -44,8 +44,8 @@ public class CatManager : MonoBehaviour {
                 break;
 
         }
-        
 
+        GetComponent<SpriteRenderer>().sprite = cat.catSprite;
         cat.StartCat();
 
         RandomizeTarget();
@@ -58,6 +58,12 @@ public class CatManager : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, target, cat.moveSpeed * Time.deltaTime);
         if (transform.position == target)
             RandomizeTarget();
+
+        if (!cat.alive)
+        {
+            GameObject.Find("Mngr").GetComponent<CatSpawner>().cats.Remove(this);
+            Destroy(gameObject);
+        }
 	}
 
     private void RandomizeTarget()
