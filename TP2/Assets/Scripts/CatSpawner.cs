@@ -14,7 +14,7 @@ public class CatSpawner : MonoBehaviour {
         {
             GameObject go = Instantiate(prefabCat);
 
-            go.transform.position = new Vector3(Random.Range(-100f, 100f), Random.Range(-50f, 50f), 0);
+            go.transform.position = new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f), 0);
 
         }
 	}

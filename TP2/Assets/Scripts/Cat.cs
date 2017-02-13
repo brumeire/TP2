@@ -6,8 +6,8 @@ using UnityEngine;
 public class Cat
 {
     protected const float maxAnxiety = 100.0f;
-    protected float actualAnxiety = 0.0f;
-    protected float anxietySpeed = 0.1f;
+    public float actualAnxiety = 0.0f;
+    protected float anxietySpeed = 10f;
     protected float timeBeforeMeow = 5.0f;
     protected float actualMeowTimer = 0.0f;
     protected bool anesthesia = false;
@@ -55,7 +55,7 @@ public class Cat
         else if (catched)
         {
             anxious = false;
-            actualAnxiety = maxAnxiety - 10.0f;
+            actualAnxiety = maxAnxiety - 50.0f;
             TryUnCatch();
         }
         

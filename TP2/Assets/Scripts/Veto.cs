@@ -48,6 +48,10 @@ public class Veto : MonoBehaviour {
 
         transform.position += new Vector3(h * speed, v * speed, 0);
 
+        if (isHoldingCat)
+        {
+            catHeld.transform.position += new Vector3(h * speed, v * speed, 0);
+        }
 
         if (!isHoldingCat && Input.GetKeyDown(KeyCode.E))
         {
@@ -85,6 +89,19 @@ public class Veto : MonoBehaviour {
         isHoldingCat = true;
         catHeld = col.GetComponent<CatManager>();
         catHeld.cat.Catch();
+    }
+
+    public void CatchCat()
+    {
+        if (!isHoldingCat)
+        {
+            int layerMask = 1 << 9;
+            Collider[] surroundings = Physics.OverlapSphere(transform.position, 1, layerMask);
+            if (surroundings.Length > 0)
+            {
+                CatchCat(surroundings[0]);
+            }
+        }
     }
 
     public void ReleaseCat()

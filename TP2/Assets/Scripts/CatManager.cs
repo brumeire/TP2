@@ -17,16 +17,20 @@ public class CatManager : MonoBehaviour {
                 cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
                 break;
         }
-
+        cat = new Cat(new Statut(names[Random.Range(0, names.Length)]));
+        cat.StartCat();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        cat.UpdateCat();
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.layer == 9)
+        {
+            cat.CollideACat(other.GetComponent<CatManager>().cat);
+        }
     }
 }
