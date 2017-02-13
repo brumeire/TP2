@@ -104,7 +104,7 @@ public class Cat
             Meow();
             moveSpeed = 0.0f;
         }
-        else
+        else if (!anesthesia)
         {
             moveSpeed = baseMoveSpeed;
         }
