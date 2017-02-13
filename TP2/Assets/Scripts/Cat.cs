@@ -11,11 +11,11 @@ public class Cat
     public bool anxious = false;
     public bool catched = false;
     public float moveSpeed = 5.0f;
-    
+    public Statut statut;
 
-    public Cat()
+    public Cat(Statut statut)
     {
-
+        this.statut = statut;
     }
 
     /// <summary>
@@ -33,11 +33,24 @@ public class Cat
         }
         else if (catched)
         {
-
+            anxious = false;
+            actualAnxiety = maxAnxiety - 10.0f;
+            TryUnCatch();
         }
 
     }
 
+    protected void TryUnCatch()
+    {
+        if ((float) Random.value > 0.5f)
+        {
+            catched = false;
+        }
+    }
+
+    /// <summary>
+    /// Call this method when you want to take or drop a cat.
+    /// </summary>
     public virtual void Catch()
     {
         catched = !catched;
