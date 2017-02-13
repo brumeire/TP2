@@ -24,11 +24,17 @@ public class Veto : MonoBehaviour {
             Debug.Log("Game Lost");
             Destroy(gameObject);
         }
+
+        Move();
 	}
 
     private void Move()
     {
+        float h = Input.GetAxis("Horizontal");
 
+        float v = Input.GetAxis("Vertical");
+
+        transform.position += new Vector3(h * speed, v * speed, 0);
     }
 
     public void CatchCat()
@@ -41,7 +47,7 @@ public class Veto : MonoBehaviour {
 
     }
 
-    public void KillCat()
+    public void AnesthesiaCat()
     {
 
     }
