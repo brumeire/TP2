@@ -99,6 +99,11 @@ public class Cat
         if (catched)
         {
             Meow();
+            moveSpeed = 0.0f;
+        }
+        else
+        {
+            moveSpeed = baseMoveSpeed;
         }
     }
 
