@@ -13,11 +13,13 @@ public class Statut {
 	public enum ask {vaccin, castration, identify};
 
 	public Text statut;
+	public sexe sex;
+	public ask asking;
 
 	public void OnScreenStatut (){
 
 		//affiché le status au dessus du chat
-		statut.text = "Name : " +  name + '\n'+"Age : " + age +'\n'+ "Sexe : " +  sexe + '\n'+"Identity : " + ID + '\n'+"Ask : " + ask; 
+		statut.text = "Name : " +  name + '\n'+"Age : " + age +'\n'+ "Sexe : " +  sex + '\n'+"Identity : " + ID + '\n'+"Ask : " + asking; 
 
 	}
 
