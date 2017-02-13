@@ -9,6 +9,9 @@ public class Veto : MonoBehaviour {
 
     public float speed = 1;
 
+    public bool isHoldingCat = false;
+
+    public CatManager catHeld;
     
 
 	// Use this for initialization
@@ -25,16 +28,45 @@ public class Veto : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        Move();
-	}
+        
 
-    private void Move()
+        isHoldingCat = IsCatStillHeld();
+
+        Actions();
+    }
+
+    private void Actions()
     {
         float h = Input.GetAxis("Horizontal");
 
         float v = Input.GetAxis("Vertical");
 
         transform.position += new Vector3(h * speed, v * speed, 0);
+
+
+        if (!isHoldingCat && Input.GetKeyDown(KeyCode.E))
+        {
+            int layerMask = 1 << 9;
+            Collider[] surroundings = Physics.OverlapSphere(transform.position, 1, layerMask);
+            if (surroundings.Length > 0)
+            {
+                isHoldingCat = true;
+                catHeld = surroundings[0].GetComponent<CatManager>();
+                catHeld.cat.Catch();
+            }
+        }
+
+        else if (isHoldingCat && Input.GetKeyDown(KeyCode.E))
+        {
+            isHoldingCat = false;
+            catHeld.cat.Catch();
+            catHeld = null;
+        }
+    }
+
+    private bool IsCatStillHeld()
+    {
+        return catHeld.cat.catched;  
     }
 
     public void CatchCat()
