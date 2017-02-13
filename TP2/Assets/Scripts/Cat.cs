@@ -87,6 +87,7 @@ public class Cat
         if ((float) Random.value > 0.5f)
         {
             catched = false;
+            moveSpeed = baseMoveSpeed;
         }
     }
 
@@ -163,7 +164,8 @@ public class BatCat : Cat
         if ((float)Random.value > 0.5f)
         {
             catched = false;
-            JumpOverAWindow();
+            timeFlee++;
+            moveSpeed = baseMoveSpeed;
         }
     }
 
