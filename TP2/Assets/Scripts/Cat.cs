@@ -222,11 +222,16 @@ public class HackerCat : Cat
 
     public override void CollideACat(Cat otherCat)
     {
-
+        otherCat.statut.asking = CorruptAsk(otherCat.statut.asking);
     }
 
-    private void CorruptStatut(Statut.ask ask)
+    private Statut.ask CorruptAsk(Statut.ask ask)
     {
-
+        Statut.ask result = ask;
+        while (ask == result)
+        {
+            result = (Statut.ask) Random.Range(0, 2);
+        }
+        return result;
     }
 }
