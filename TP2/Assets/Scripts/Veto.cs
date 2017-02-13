@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Veto : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class Veto : MonoBehaviour {
     public bool isHoldingCat = false;
 
     public CatManager catHeld;
+
+    public Text heldText;
     
 
 	// Use this for initialization
@@ -33,13 +36,27 @@ public class Veto : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        
+
         if (isHoldingCat)
+        {
             isHoldingCat = IsCatStillHeld();
+        }
+
 
         Actions();
+        UpdateHeldText();
     }
-
+    private void UpdateHeldText()
+    {
+        if (isHoldingCat)
+        {
+            heldText.text = catHeld.cat.statut.OnScreenStatut();
+        }
+        else
+        {
+            heldText.text = "";
+        }
+    }
     private void Actions()
     {
         float h = Input.GetAxis("Horizontal");

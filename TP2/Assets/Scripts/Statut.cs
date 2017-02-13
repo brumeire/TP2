@@ -13,7 +13,6 @@ public class Statut {
 	public enum ask {vaccin, castration, identify};
     public bool vaccinated = false;
 
-	public Text statut;
 	public sexe sex;
 	public ask asking;
 
@@ -54,10 +53,10 @@ public class Statut {
 
     }
 
-	public void OnScreenStatut (){
+	public string OnScreenStatut (){
 
 		//affiché le status au dessus du chat
-		statut.text = "Name : " +  name + '\n'+"Age : " + age +'\n'+ "Sexe : " +  sex + '\n'+"Identity : " + iD + '\n'+"Ask : " + asking; 
+		return ("Name : " +  name + '\n'+"Age : " + age +'\n'+ "Sexe : " +  sex + '\n'+"Identity : " + iD + '\n'+"Ask : " + asking); 
 
 	}
 
