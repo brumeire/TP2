@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[SerializeField]
 public class Statut {
 
 	public string name;
@@ -10,8 +12,11 @@ public class Statut {
 	public int ID;
 	public enum ask {vaccin, castration, identify};
 
+	 
+
 	public void OnScreenStatut (){
 
+		//affiché le status au dessus du chat
 
 	}
 
